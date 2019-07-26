@@ -1,5 +1,3 @@
-
-
 package com.ascetic_yuanma.tmall.controller;
 
 import java.io.IOException;
@@ -26,7 +24,6 @@ public class OrderController {
     OrderService orderService;
     @Autowired
     OrderItemService orderItemService;
-
     @RequestMapping("admin_order_list")
     public String list(Model model, Page page){
         PageHelper.offsetPage(page.getStart(),page.getCount());
@@ -37,12 +34,8 @@ public class OrderController {
         page.setTotal(total);
 
         orderItemService.fill(os);
-        
-        
-
         model.addAttribute("os", os);
         model.addAttribute("page", page);
-
         return "admin/listOrder";
     }
 
